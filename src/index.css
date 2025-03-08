@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@layer base {
+  h1 {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+  }
+  h2 {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+  }
+  h3 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+  }
+  h4{
+	font-size: var(--text-lg);
+	font-weight: 700;
+  }
+}
