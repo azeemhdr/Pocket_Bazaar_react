@@ -1,12 +1,11 @@
-
 import './App.css'
-
+import Header from './components/Header'
 function App() {
  
 
   return (
     <>
-     <h2 className='container m-auto text-center'>Welcome to Pocket Bazaar</h2>
+     <Header/>
     </>
   )
 }
