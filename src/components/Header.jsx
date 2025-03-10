@@ -16,7 +16,7 @@ export default function Header() {
                 type="button"
               >
                 <span className=""></span>
-                <span className="">Grocery</span>
+                <span className="text-[#009f7f] font-semibold">Grocery</span>
                 <span className=" ps-2">
                   <svg width="10" height="6" viewBox="0 0 10 6">
                     <path
