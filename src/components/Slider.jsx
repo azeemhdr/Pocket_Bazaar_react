@@ -13,7 +13,7 @@ import sliderImage5 from '../assets/images/slider-5.png'
 export default function Slider() {
   return (
     <>
-      <div className="py-8 px-6">
+      <div className="py-8 px-6 border border-gray-200">
         <Swiper
           modules={[Navigation, A11y]}
           spaceBetween={24}
