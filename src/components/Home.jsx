@@ -1,14 +1,17 @@
 import React from "react";
 import bgImage from "../assets/images/grocery.png";
+import Headers from "./Header"
 export default function Home() {
   return (
     <>
       <div className="relative h-screen w-full">
+        
         <img
           src={bgImage}
           alt="hero image"
           className="absolute h-full w-full object-cover"
         />
+        <Headers/>
         <div className="container m-auto">
           <div className="absolute mt-8 inset-0 p-5 md:px-20 flex flex-col items-center justify-center">
             <h1 className="text-center tracking-tight  text-[#1f2937] ">
@@ -20,11 +23,11 @@ export default function Home() {
             </p>
             <div className="w-full max-w-3xl mt-10">
               <form action="" className="w-full">
-                <div className="rounded md:rounded-lg h-14 shadow-md flex items-center bg-gary-300">
+                <div className="rounded md:rounded-lg h-14 shadow-md flex items-center bg-gary-300 transition duration-700 ease-in-out">
                   <label for="search"></label>
                   <input
                     type="text"
-                    className="py-2 ps-6 pe-14 w-full h-full border-transparent outline-0"
+                    className="py-2 ps-6 pe-14 w-full h-full border-transparent outline-0 focus:border focus:border-[#009f7f] rounded-ss rounded-es focus:transition duration-300 ease-in-out"
                     placeholder="search your product here"
                   />
                   <button className="flex items-center justify-center px-8 bg-[#009f7f] h-full rounded-se rounded-ee text-white font-semibold">
