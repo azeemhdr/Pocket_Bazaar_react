@@ -1,0 +1,11 @@
+.swiper-button-prev::after, .swiper-button-next::after{
+	font-weight: bold;
+	font-weight: 16px;
+}
+
+.swiper-button-prev, .swiper-button-next{
+	background: aliceblue;
+  border-radius: 50%;
+  color: var(--swiper-navigation-color, #141515);
+  width: calc(var(--swiper-navigation-size) / 44 * 44);
+}

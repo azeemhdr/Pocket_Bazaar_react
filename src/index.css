@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+:root{
+  --swiper-navigation-size:36px!important;
+}
 @layer base {
   h1 {
     font-size: var(--text-5xl);
@@ -19,4 +22,21 @@
   }
 }
 
+.swiper-button-prev::after, .swiper-button-next::after{
+	font-weight: bold;
+	font-size: 12px!important;
+}
 
+.swiper-button-prev, .swiper-button-next{
+	background: #0080f0;
+  border-radius: 50%!important;
+  color: var(--swiper-navigation-color, #141515)!important;
+  width: calc(var(--swiper-navigation-size) / 36 * 36)!important;
+  right: var(--swiper-navigation-sides-offset, -20px)!important;
+  left: auto;
+}
+
+.swiper-button-prev{
+  left: var(--swiper-navigation-sides-offset, -20px)!important;
+  right: auto;
+}

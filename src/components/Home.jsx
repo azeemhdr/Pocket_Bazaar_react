@@ -1,5 +1,6 @@
 import React from "react";
 import bgImage from "../assets/images/grocery.png";
+import Slider from "./Slider";
 
 export default function Home() {
   return (
@@ -47,6 +48,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Slider/>
     </>
   );
 }
