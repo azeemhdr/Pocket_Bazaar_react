@@ -3,7 +3,7 @@ import React from "react";
 export default function Header() {
   return (
     <>
-      <header className="py-2 bg-[#f2f2f2] shadow relative z-99">
+      <header className="py-2 bg-[#f2f2f2] shadow relative z-99 sticky top-0">
         <nav className="md:flex md:items-center md:justify-between px-8">
           <div className="logo md:flex md:items-center md:justify-between gap-12">
             <a href="#" className="py-3">

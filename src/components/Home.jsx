@@ -2,6 +2,7 @@ import React from "react";
 import bgImage from "../assets/images/grocery.png";
 import Slider from "./Slider";
 import Listing from "./Listing";
+import ProductCart from "./ProductCart";
 
 export default function Home() {
   return (
@@ -51,6 +52,7 @@ export default function Home() {
       </div>
       <Slider/>
       <Listing/>
+      <ProductCart/>
     </>
   );
 }

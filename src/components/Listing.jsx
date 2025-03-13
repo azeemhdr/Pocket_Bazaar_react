@@ -141,7 +141,7 @@ export default function Listing() {
                 <img src={productImg} alt="apple" loading="lazy" className="" />
               </div>
               <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
+                <h3 className="mb-2 text-sm font-semibold truncate text-heading cursor-pointer">
                   Apples
                 </h3>
                 <p className="text-xs text-gray-500">1lb</p>
