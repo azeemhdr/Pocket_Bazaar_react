@@ -3,6 +3,7 @@ import bgImage from "../assets/images/grocery.png";
 import Slider from "./Slider";
 import Listing from "./Listing";
 import ProductCart from "./ProductCart";
+import Modal from "./Modal";
 
 export default function Home() {
   return (
@@ -53,6 +54,7 @@ export default function Home() {
       <Slider/>
       <Listing/>
       <ProductCart/>
+      <Modal/>
     </>
   );
 }
