@@ -26,13 +26,13 @@ export default function Home() {
             <div className="w-full max-w-3xl mt-10">
               <form action="" className="w-full">
                 <div className="rounded md:rounded-lg h-14 shadow-md bg-white flex items-center bg-gary-300 transition duration-700 ease-in-out">
-                  <label htmlFor="search"></label>
+                  <label htmlFor="search" className="sr-only">Search</label>
                   <input
                     type="text"
                     className="py-2 ps-6 pe-14 w-full h-full border-transparent outline-0 focus:border focus:border-[#009f7f] rounded-ss-lg rounded-es-lg focus:transition duration-300 ease-in-out text-sm bg-white"
                     placeholder="Search your product from here"
                   />
-                  <button className="flex items-center min-w-[143px] justify-center px-8 bg-[#009f7f] h-full rounded-se-lg rounded-ee-lg text-white font-semibold">
+                  <button className="flex items-center min-w-[143px] justify-center px-8 bg-[#009f7f] h-full rounded-se-lg rounded-ee-lg text-white font-semibold hover:bg-[#019376] cursor-pointer">
                     <svg
                       viewBox="0 0 17.048 18"
                       className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
