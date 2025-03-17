@@ -54,3 +54,7 @@
   white-space: nowrap;
   border-width: 0;
 }
+
+@theme {
+  --color-primary: #009f7f;
+}
