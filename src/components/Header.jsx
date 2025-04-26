@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import Btn from "./Btn";
 
 export default function Header() {
 const [dropdown,setdropdown] = useState(false)
+const [counter,setCounter] = useState(0)
 
   return (
     <>
@@ -352,18 +354,10 @@ const [dropdown,setdropdown] = useState(false)
               </li>
             </ul>
             <div className="ms-10">
-              <a
-                href="#"
-                className="bg-primary px-3 py-2 rounded font-semibold text-white"
-              >
-                Join
-              </a>
-              <a
-                href="#"
-                className="bg-primary px-3 py-2 rounded font-semibold ms-4 text-white"
-              >
-                Become a Seller
-              </a>
+              <Btn name="Join" JoinFunction={()=>{
+                console.log("working")
+                }}/>
+              <Btn name="Become a Seller" />
             </div>
           </div>
         </nav>

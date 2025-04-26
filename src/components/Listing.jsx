@@ -3,7 +3,7 @@ import productImg from "../assets/images/Apples.jpg";
 import blueberries from "../assets/images/blueberries.jpg";
 
 export default function Listing() {
-  const [cartCounter, setCartCounter] = useState(0);
+ 
  
   return (
     <>
@@ -881,588 +881,101 @@ export default function Listing() {
         </aside>
         <div className="product-listing xl:p-8 px-4 w-full bg-[#f3f4f6]">
           <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-3">
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img src={productImg} alt="apple" loading="lazy" className="" />
+        {Array(20).fill(null).map((cur , i)=>{
+           const [cartCounter, setCartCounter] = useState(0);
+          return     <article className="product-card h-full bg-white shadow border rounded border-gray-300" key={i}>
+          <div className="relative">
+            <span className="sr-only">Product Image</span>
+            <img src={productImg} alt="apple" loading="lazy" className="" />
+          </div>
+          <header className="p-3 md:px-5 md:py-6">
+            <h3 className="mb-2 text-sm font-semibold truncate text-heading cursor-pointer">
+              Apples
+            </h3>
+            <p className="text-xs text-gray-500">1lb</p>
+            <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
+              <div className="">
+                <del className="block text-xs text-gray-500 italic text-opactiy-75">
+                  &#8377; 200
+                </del>
+                <span className="text-sm font-semibold text-[#009f7f] md:text-base">
+                  &#8377; 160
+                </span>
               </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading cursor-pointer">
-                  Apples
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 200
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 160
-                    </span>
+              {cartCounter > 0 ? (
+                <div className="text-[#009f7f] flex items-center justify-between rounded-full h-10  border border-gray-300 hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out ">
+                  <button
+                    className=" cursor-pointer flex px-2 py-3"
+                    onClick={() => {
+                      setCartCounter(
+                        cartCounter > 0 ? cartCounter - 1 : 0 
+                      );
+                    }}
+                  >
+                    <span className="sr-only">minus</span>
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      class="h-3 w-3 stroke-2.5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M20 12H4"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div className="flex flex-1 items-center justify-center px-3 text-sm font-semibold h-full">
+                    {cartCounter}
                   </div>
-                  {cartCounter > 0 ? (
-                    <div className="text-[#009f7f] flex items-center justify-between rounded-full h-10  border border-gray-300 hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out ">
-                      <button
-                        className=" cursor-pointer flex px-2 py-3"
-                        onClick={() => {
-                          setCartCounter(
-                            cartCounter > 0 ? cartCounter - 1 : 0 
-                          );
-                        }}
-                      >
-                        <span className="sr-only">minus</span>
-                        <svg
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          class="h-3 w-3 stroke-2.5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M20 12H4"
-                          ></path>
-                        </svg>
-                      </button>
-                      <div className="flex flex-1 items-center justify-center px-3 text-sm font-semibold h-full">
-                        {cartCounter}
-                      </div>
-                      <button
-                        className="cursor-pointer flex items-center px-2 py-3"
-                        onClick={() => {
-                          setCartCounter(cartCounter + 1);
-                        }}
-                      >
-                        <span className="sr-only">Plus</span>
-                        <svg
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          class="md:w-4.5 h-3.5 w-3.5 stroke-2.5 md:h-4.5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="text-[#009f7f] ">
-                      <button
-                        className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out"
-                        onClick={()=>{setCartCounter(cartCounter + 1)}}
-                      >
-                        <svg
-                          className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                          viewBox="0 0 14.4 12"
-                        >
-                          <g transform="translate(-288 -413.89)">
-                            <path
-                              fill="currentColor"
-                              d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                            ></path>
-                          </g>
-                        </svg>
-                        <span>Cart</span>
-                      </button>
-                    </div>
-                  )}
+                  <button
+                    className="cursor-pointer flex items-center px-2 py-3"
+                    onClick={() => {
+                      setCartCounter(cartCounter + 1);
+                    }}
+                  >
+                    <span className="sr-only">Plus</span>
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      class="md:w-4.5 h-3.5 w-3.5 stroke-2.5 md:h-4.5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      ></path>
+                    </svg>
+                  </button>
                 </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img
-                  src={blueberries}
-                  alt="blueberries"
-                  loading="lazy"
-                  className=""
-                />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Bluebarries
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 400
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 360
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
+              ) : (
+                <div className="text-[#009f7f] ">
+                  <button
+                    className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out"
+                    onClick={()=>{setCartCounter(cartCounter + 1)}}
+                  >
+                    <svg
+                      className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
+                      viewBox="0 0 14.4 12"
+                    >
+                      <g transform="translate(-288 -413.89)">
+                        <path
+                          fill="currentColor"
+                          d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
+                        ></path>
+                      </g>
+                    </svg>
+                    <span>Cart</span>
+                  </button>
                 </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img src={productImg} alt="apple" loading="lazy" className="" />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Apples
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 200
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 160
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img
-                  src={blueberries}
-                  alt="blueberries"
-                  loading="lazy"
-                  className=""
-                />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Bluebarries
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 400
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 360
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img src={productImg} alt="apple" loading="lazy" className="" />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Apples
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 200
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 160
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img
-                  src={blueberries}
-                  alt="blueberries"
-                  loading="lazy"
-                  className=""
-                />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Bluebarries
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 400
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 360
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img
-                  src={blueberries}
-                  alt="blueberries"
-                  loading="lazy"
-                  className=""
-                />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Bluebarries
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 400
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 360
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img src={productImg} alt="apple" loading="lazy" className="" />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Apples
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 200
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 160
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img
-                  src={blueberries}
-                  alt="blueberries"
-                  loading="lazy"
-                  className=""
-                />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Bluebarries
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 400
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 360
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img src={productImg} alt="apple" loading="lazy" className="" />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Apples
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 200
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 160
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img
-                  src={blueberries}
-                  alt="blueberries"
-                  loading="lazy"
-                  className=""
-                />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Bluebarries
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 400
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 360
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img src={productImg} alt="apple" loading="lazy" className="" />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Apples
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 200
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 160
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </header>
-            </article>
-            <article className="product-card h-full bg-white shadow border rounded border-gray-300">
-              <div className="relative">
-                <span className="sr-only">Product Image</span>
-                <img
-                  src={blueberries}
-                  alt="blueberries"
-                  loading="lazy"
-                  className=""
-                />
-              </div>
-              <header className="p-3 md:px-5 md:py-6">
-                <h3 className="mb-2 text-sm font-semibold truncate text-heading">
-                  Bluebarries
-                </h3>
-                <p className="text-xs text-gray-500">1lb</p>
-                <div className=" mt-7 md:mt-8 flex items-center justify-between min-h-6">
-                  <div className="">
-                    <del className="block text-xs text-gray-500 italic text-opactiy-75">
-                      &#8377; 400
-                    </del>
-                    <span className="text-sm font-semibold text-[#009f7f] md:text-base">
-                      &#8377; 360
-                    </span>
-                  </div>
-                  <div className="text-[#009f7f] ">
-                    <button className="flex items-center rounded-full px-5 py-2 justify-center border border-gray-300 cursor-pointer hover:bg-[#009f7f] hover:text-[#fafafa] transition duration-300 ease-in-out">
-                      <svg
-                        className="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
-                        viewBox="0 0 14.4 12"
-                      >
-                        <g transform="translate(-288 -413.89)">
-                          <path
-                            fill="currentColor"
-                            d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
-                          ></path>
-                        </g>
-                      </svg>
-                      <span>Cart</span>
-                    </button>
-                  </div>
-                </div>
-              </header>
-            </article>
+              )}
+            </div>
+          </header>
+        </article>
+        })}
+            
           </div>
         </div>
       </div>
